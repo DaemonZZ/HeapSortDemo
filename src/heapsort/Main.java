@@ -1,6 +1,4 @@
-package cal;
-
-import java.util.ArrayList;
+package heapsort;
 
 public class Main {
     static int steps_count = 0;
