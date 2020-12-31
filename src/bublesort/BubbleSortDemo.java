@@ -5,7 +5,7 @@ public class BubbleSortDemo {
 
     public BubbleSortDemo() {
         sort(a, a.length);
-        for (int i = 1; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + "   ");
         }
     }

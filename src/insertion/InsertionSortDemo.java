@@ -5,9 +5,10 @@ public class InsertionSortDemo {
     void sort(int[] a, int index) {
         if (index < a.length) {
             int cur = a[index];
-            for (int i = index - 1; i >= 0; i--) {
+            for (int i = index -1; i >= 0; i--) {
                 if (cur < a[i]) {
                     a[i + 1] = a[i];
+                    a[i] = cur;
                 } else {
                     a[i + 1] = cur;
                     break;
@@ -20,7 +21,7 @@ public class InsertionSortDemo {
 
     public InsertionSortDemo() {
         sort(a, 1);
-        for (int i = 1; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + "   ");
         }
     }
