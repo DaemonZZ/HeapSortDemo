@@ -13,29 +13,34 @@ public class MergeSortDemo {
     }
 
     private void merge(int[] a, int head, int mid, int tail) {
-        int i = 0, j = 0;
-        int[] left = new int[mid-head+1];
-        int[] right = new int[tail-mid];
-        //System.out.print(left.length + "    "+ right.length+"    ");
-        for (int n = 0; n < mid; n++) {
-            left[n]=a[n];
-            if(n+mid+1<a.length-1){
-                right[n] = a[n+mid+1];
+        int[] left = new int[mid - head + 1];
+        int[] right = new int[tail - mid];
+        for (int n = 0; n < left.length; n++) {
+            left[n] = a[n+head];
+            //System.out.print("left " + left[n]+"  ok?   ");
+        }
+        for(int n = 0; n<right.length;n++){
+            right[n]=a[n+mid+1];
+        }
+
+        int i = 0, j = 0, k = head;
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j]) {
+                a[k++] = left[i++];
+            } else {
+                a[k++] = right[j++];
             }
         }
-        for (int k = head; i<left.length-1 && j<right.length-1; k++) {
-            if (left[i]<=right[j]) {
-                a[k] = left[i];
-                i++;
-            } else{
-                a[k]=right[j];
-                j++;
-            }
-
+        while (i < left.length) {
+            a[k++] = left[i++];
+        }
+        while (j < right.length) {
+            a[k++] = right[j++];
         }
     }
-    public MergeSortDemo(){
-        sort(arr,0,arr.length-1);
+
+    public MergeSortDemo() {
+        sort(arr, 0, arr.length - 1);
         for (int i = 1; i < arr.length; i++) {
             System.out.print(arr[i] + "   ");
         }
